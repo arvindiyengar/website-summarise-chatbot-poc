@@ -187,8 +187,8 @@ if prompt := st.chat_input("What is up?"):
         st.markdown(prompt)
 
     # Check if the message contains a URL
-    if contains_url(prompt):
-        url = contains_url(prompt)  # Extract the first URL
+    if contains_url(llm3, url_schema, prompt):
+        url = contains_url(llm3, url_schema, prompt)  # Extract the first URL
         output = process_url(url)  # Process the URL
         response = output
     else:
