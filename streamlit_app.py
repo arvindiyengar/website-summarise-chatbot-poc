@@ -145,30 +145,6 @@ def contains_url(llm3, url_schema, message):
     else:
         return links[0]['url']
 
-def process_url(url):
-    progress = st.progress(0)
-    
-    progress.progress(10)
-    response = get_response(url)
-    if response.get('status_code') != 200:
-        return "Failed to fetch the content."
-    
-    progress.progress(20)
-    html_content = response.get('response')
-    markdown_content = html_to_markdown(html_content)
-    
-    progress.progress(30)
-    docs = chunk_text(markdown_content)
-    
-    progress.progress(50)
-    selected_indices = get_best_chunks(docs)
-    
-    progress.progress(70)
-    summary = llm_summarise(docs, selected_indices)
-    
-    progress.progress(90)
-    return summary
-
 
 def process_url(url):
   
