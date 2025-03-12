@@ -166,7 +166,7 @@ def process_url(url):
     progress.progress(70)
     summary = llm_summarise(docs, selected_indices)
     
-    progress.progress(100)
+    progress.progress(90)
     return summary
 
 
