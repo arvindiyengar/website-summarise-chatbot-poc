@@ -210,8 +210,7 @@ def process_url(url):
 # Show title and description.
 st.title("Summariser ⚡")
 st.write(
-    "This is a simple chatbot that uses OpenAI's models to generate summaries for any website. "
-    "To use this feature, please provide any website link that you want to summarise."
+    "This chatbot makes it easy to get quick summaries of websites using OpenAI's models. Just share a link, and it'll handle the rest!"
 )
 
 
