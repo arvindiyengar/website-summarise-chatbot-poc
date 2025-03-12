@@ -153,17 +153,17 @@ def process_url(url):
     if response.get('status_code') != 200:
         return "Failed to fetch the content."
     
-    progress.progress(30)
+    progress.progress(20)
     html_content = response.get('response')
     markdown_content = html_to_markdown(html_content)
     
-    progress.progress(50)
+    progress.progress(30)
     docs = chunk_text(markdown_content)
     
-    progress.progress(70)
+    progress.progress(50)
     selected_indices = get_best_chunks(docs)
     
-    progress.progress(90)
+    progress.progress(70)
     summary = llm_summarise(docs, selected_indices)
     
     progress.progress(100)
