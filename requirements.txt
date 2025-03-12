@@ -1,2 +1,10 @@
 streamlit
 openai
+requests
+html2text
+tiktoken
+langchain
+langchain-community
+openai
+kor
+langchain-openai
