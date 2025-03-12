@@ -23,6 +23,9 @@ import html2text
 #declaring the variables
 ##########################################################################################################################################################
 
+openai_api_key = st.secrets["openai_api_key"]
+client = OpenAI(api_key=openai_api_key)
+
 map_prompt = """
 You will be given a single passage of a content on a website. This section will be enclosed in triple backticks (```)
 Your goal is to give a summary of this section so that a reader will have a full understanding of what the website is about.
@@ -164,8 +167,7 @@ st.write(
     "To use this feature, please provide any website link that you wanna summarise."
 )
 
-openai_api_key = st.secrets["openai_api_key"]
-client = OpenAI(api_key=openai_api_key)
+
 
 # Initialize session state for messages
 if "messages" not in st.session_state:
