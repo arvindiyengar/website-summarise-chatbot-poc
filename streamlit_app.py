@@ -2,16 +2,13 @@ import streamlit as st
 from openai import OpenAI
 
 # Show title and description.
-st.title("Summariser")
+st.title("Summariser ⚡")
 st.write(
     "This is a simple chatbot that uses OpenAI's models to generate summaries for any website. "
-    "To use this feature, please provide any website link that you wanna summarise"
+    "To use this feature, please provide any website link that you wanna summarise."
 )
 
-# Ask user for their OpenAI API key via `st.text_input`.
-# Alternatively, you can store the API key in `./.streamlit/secrets.toml` and access it
-# via `st.secrets`, see https://docs.streamlit.io/develop/concepts/connections/secrets-management
-openai_api_key = st.text_input("OpenAI API Key", type="password")
+openai_api_key = st.secrets["openai_api_key"]
 if not openai_api_key:
     st.info("Please add your OpenAI API key to continue.", icon="🗝️")
 else:
