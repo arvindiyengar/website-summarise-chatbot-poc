@@ -8,3 +8,4 @@ langchain-community
 openai
 kor
 langchain-openai
+scikit-learn
