@@ -170,6 +170,38 @@ def process_url(url):
     return summary
 
 
+def process_url(url):
+  
+    progress = st.progress(0)
+    progress.progress(10)
+  
+    with st.status("Fetching the webpage..."):
+        response = get_response(url)
+        if response.get('status_code') != 200:
+            return "Failed to fetch the content."
+        progress.progress(20)
+
+    with st.status("Converting HTML to Markdown..."):
+        html_content = response.get('response')
+        markdown_content = html_to_markdown(html_content)
+        progress.progress(30)
+
+    with st.status("Chunking the text..."):
+        docs = chunk_text(markdown_content)
+        progress.progress(40)
+
+    with st.status("Selecting the most relevant chunks..."):
+        selected_indices = get_best_chunks(docs)
+        progress.progress(70)
+
+    with st.status("Generating summaries for selected chunks..."):
+        summary = llm_summarise(docs, selected_indices)
+        progress.progress(90)
+
+    return summary
+
+
+
 
 
 ##########################################################################################################################################################
