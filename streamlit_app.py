@@ -103,7 +103,7 @@ def chunk_text(markdown_content):
 def get_best_chunks(docs):
     embeddings = OpenAIEmbeddings(openai_api_key=openai_api_key)
     vectors = embeddings.embed_documents([x.page_content for x in docs])
-    num_clusters = min(10, len(docs))
+    num_clusters = 10
     kmeans = KMeans(n_clusters=num_clusters, random_state=42).fit(vectors)
 
     closest_indices = []
