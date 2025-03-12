@@ -149,9 +149,12 @@ def process_url(url):
     response = get_response(url)
     if response.get('status_code') == 200:
         html_content = response.get('response')
+        print('html_content extracted')
         markdown_content = html_to_markdown(html_content)
+        print('markdown_content converted')
         docs = chunk_text(markdown_content)
         selected_indices = get_best_chunks(docs)
+        print('chunked')
         return llm_summarise(docs, selected_indices)
     return "Failed to fetch the content."
 
