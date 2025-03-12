@@ -10,7 +10,7 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_openai import ChatOpenAI
 from langchain_openai import OpenAIEmbeddings
 from langchain.chains.summarize import load_summarize_chain
-from langchain import PromptTemplate
+from langchain_core.prompts import PromptTemplate
 import numpy as np
 from sklearn.cluster import KMeans
 from kor.extraction import create_extraction_chain
