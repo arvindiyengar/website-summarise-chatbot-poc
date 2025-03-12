@@ -211,7 +211,7 @@ def process_url(url):
 st.title("Summariser ⚡")
 st.write(
     "This is a simple chatbot that uses OpenAI's models to generate summaries for any website. "
-    "To use this feature, please provide any website link that you wanna summarise."
+    "To use this feature, please provide any website link that you want to summarise."
 )
 
 
@@ -226,7 +226,7 @@ for message in st.session_state.messages:
         st.markdown(message["content"])
 
 # Chat input
-if prompt := st.chat_input("What is up?"):
+if prompt := st.chat_input("Ask away!"):
 
     # Store and display user message
     st.session_state.messages.append({"role": "user", "content": prompt})
